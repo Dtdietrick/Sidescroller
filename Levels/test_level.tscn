@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmmkegp00cl18"]
+[gd_scene load_steps=9 format=3 uid="uid://dmmkegp00cl18"]
 
 [ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_eqpw1"]
 [ext_resource type="Texture2D" uid="uid://cqrqnlx2jpsop" path="res://Art/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_uo41u"]
@@ -1425,6 +1425,8 @@ texture = ExtResource("1_eqpw1")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_x01cw")
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6yv1f"]
+
 [node name="TestLevel" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -1455,5 +1457,25 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="Snail" parent="." instance=ExtResource("4_owb7k")]
+position = Vector2(-164, 84)
+safe_margin = 0.01
 
 [node name="HealthChangedManager" parent="." instance=ExtResource("5_l5os7")]
+
+[node name="InvisibleWall" type="StaticBody2D" parent="."]
+position = Vector2(-201, 12)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall"]
+position = Vector2(0, 69)
+shape = SubResource("SegmentShape2D_6yv1f")
+
+[node name="InvisibleWall2" type="StaticBody2D" parent="."]
+position = Vector2(-201, 12)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWall2"]
+position = Vector2(515, 69)
+shape = SubResource("SegmentShape2D_6yv1f")
